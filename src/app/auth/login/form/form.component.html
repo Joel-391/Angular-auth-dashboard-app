@@ -1,0 +1,55 @@
+<section class="background">
+    <div class="d-flex justify-content-center align-items-center vh-100">
+      <mat-card class="p-5 mat-elevation-z24" style="width: 380px">
+        <h2 class="text-center m-0 pb-1">Login</h2>
+        <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+
+          <div class="profile-container pb-1">
+            <img src="images/user.png" alt="Imagen de usuario"
+                class="img mat-elevation-z3">
+          </div>
+
+          <div class="pt-1 pb-4">
+            <mat-form-field appearance="outline" class="col-12">
+              <mat-label>Correo electrónico</mat-label>
+              <input
+                matInput
+                type="email"
+                placeholder="Ingrese su correo"
+                required
+                [(ngModel)]="email"
+                name="email"
+                #emailInput="ngModel"
+                autocomplete="email"
+              />
+              <mat-error *ngIf="errorMessage">{{ errorMessage }}</mat-error>
+            </mat-form-field>
+          </div>
+  
+          <div class="pt-1 pb-4">
+            <mat-form-field appearance="outline" class="col-12">
+              <mat-label>Contraseña</mat-label>
+              <input
+                matInput
+                type="password"
+                placeholder="Ingrese su contraseña"
+                required
+                [(ngModel)]="password"
+                name="password"
+                #passwordInput="ngModel"
+                autocomplete="current-password"
+              />
+              <mat-error *ngIf="errorMessage">{{ errorMessage }}</mat-error>
+            </mat-form-field>
+          </div>
+  
+          <div class="text-center">
+            <button mat-raised-button color="primary" class="p-3" [disabled]="!loginForm.valid">
+              Iniciar sesión
+            </button>
+          </div>
+        </form>
+
+      </mat-card>
+    </div>
+  </section>
